@@ -1,6 +1,8 @@
 let countdown;
 const timerDisplay = document.querySelector(".display__time-left");
 const endTime = document.querySelector(".display__end-time");
+const buttons = document.querySelectorAll("[data-time]");
+
 
 function timer(seconds) {
   const now = Date.now();
@@ -35,3 +37,10 @@ const hours = end.getHours()
 const minutes = end.getMinutes()
 endTime.textContent = `Be Back At ${hours}:${minutes}`
 }
+
+function startTimer() {
+    const seconds = parseInt(this.dataset.time)
+    console.log(seconds)
+}
+
+buttons.forEach(button => button.addEventListener('click', startTimer ))
